@@ -2,7 +2,7 @@
 # 09/27/2017 - Chen Chen
 
 # 0. Load data into Rstudio
-titanic <- read.csv("titanic3.csv",sep=',',stringsAsFactors = FALSE)
+titanic <- read.csv("titanic_original.csv",sep=',',stringsAsFactors = FALSE)
 
 # 1. Port of embarkation: find missing Embarked values and replace 
 # them with S (which stands for Southampton)
@@ -20,3 +20,4 @@ has_cabin_number[has_cabin_number != ""] <- 1
 has_cabin_number[has_cabin_number == ""] <- 0
 titanic_filled <- cbind(titanic,has_cabin_number)
 
+write.csv(titanic_filled,file="titanic_clean.csv",row.names=FALSE)
